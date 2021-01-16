@@ -10,20 +10,25 @@
     <style>
         /* CSS */
         .wrapper {
+            display: flex;
+            flex-direction: column;
             margin-top: 50px;
             margin-left: 30px;
+        }
+        .button-container {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="wrapper" style="display: flex; flex-direction: column;">
+    <div class="wrapper">
         <div>
             <video id="myVideo" controls width="500" loop muted>
                 <source src="InnerWorkingsTrailer.mp4" type="video/mp4">
                     Sorry, your browser doesn't support videos.
             </video>
         </div>
-        <div style="margin-top: 20px;">
+        <div class="button-container">
             <button onclick="videoPlayback.playVid()" type="button">Play Video</button>
             <button onclick="videoPlayback.pauseVid()" type="button">Pause Video</button>
             <button onclick="videoPlayback.reloadVid()" type="button">Reload Video</button>
