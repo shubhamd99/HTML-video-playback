@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This gives the browser instructions on how to control the page's dimensions and scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The X-UA-Compatible meta tag allows web authors to choose what version of Internet Explorer the page should be rendered as. -->
+    <meta http-equiv="X-UA-Compatible" content="id-edge">
+    <title>Video Playback By Shubham</title>
+    <style>
+        /* CSS */
+        .wrapper {
+            margin-top: 50px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" style="display: flex; flex-direction: column;">
+        <div>
+            <video id="myVideo" controls width="500" loop muted>
+                <source src="InnerWorkingsTrailer.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support videos.
+            </video>
+        </div>
+        <div style="margin-top: 20px;">
+            <button onclick="videoPlayback.playVid()" type="button">Play Video</button>
+            <button onclick="videoPlayback.pauseVid()" type="button">Pause Video</button>
+            <button onclick="videoPlayback.reloadVid()" type="button">Reload Video</button>
+            <button onclick="videoPlayback.startCountdown()" type="button">Start Countdown</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
