@@ -7,6 +7,8 @@ class VideoPlayback {
         // HTML DOM - https://www.w3schools.com/whatis/whatis_htmldom.asp
         this.vidElm = document.getElementById("myVideo");
         this._initEventListners();
+
+        this.observeVideoElm();
     }
 
     // Video/Audio Element DOM Methods - https://www.w3schools.com/tags/ref_av_dom.asp
@@ -43,6 +45,28 @@ class VideoPlayback {
         this.interval = window.setTimeout(() => {
             this.vidElm.play();
         }, 3000);
+    }
+
+    // Pause the Video if the use is out of the view port
+    observeVideoElm() {
+        let options = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 1.0,
+        };
+        let callback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.target.id === "myVideo") {
+                    if (!entry.isIntersecting) {
+                        log("User is out of the view port, Pausing Video!!");
+                        entry.target.pause();
+                    }
+                }
+            });
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+        let observer = new IntersectionObserver(callback, options);
+        observer.observe(this.vidElm);
     }
 }
 
